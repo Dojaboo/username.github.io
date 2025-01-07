@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>깜짝 놀라는 사이트</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        #content {
+            padding: 20px;
+            font-size: 24px;
+        }
+
+        #ghost {
+            display: none; /* 처음엔 보이지 않음 */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #ghost img {
+            width: 80%; /* 이미지 크기 조정 */
+            max-width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>안녕하세요!</h1>
+        <p>이 웹사이트는 아무 일도 일어나지 않는 평범한 곳입니다.</p>
+        <p>조금만 기다려 주세요...</p>
+    </div>
+
+    <!-- 귀신 이미지 -->
+    <div id="ghost">
+        <img src="ghost.jpg" alt="귀신 이미지">
+    </div>
+
+    <script>
+        // 귀신 이미지 표시하기
+        setTimeout(() => {
+            const ghost = document.getElementById("ghost");
+            ghost.style.display = "block"; // 귀신 이미지 보이게 하기
+
+            // 비명 소리 재생 (선택)
+            const screamAudio = new Audio('scream.mp3');
+            screamAudio.play();
+        }, 5000); // 5초 후 실행
+    </script>
+</body>
+</html>
