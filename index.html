@@ -6,40 +6,53 @@
     <title>깜짝 귀신 사이트</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: black;
-            color: white;
             margin: 0;
             padding: 0;
+            overflow: hidden; /* 스크롤바 제거 */
+            background-color: black;
         }
 
         #ghost {
             display: none; /* 처음엔 보이지 않음 */
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
+            width: 100%; /* 화면 너비 전체 */
+            height: 100%; /* 화면 높이 전체 */
+            z-index: 1;
         }
 
         #ghost img {
-            width: 80%;
-            max-width: 500px;
+            width: 100%; /* 사진을 화면 가로 전체로 채우기 */
+            height: 100%; /* 사진을 화면 세로 전체로 채우기 */
+            object-fit: cover; /* 비율 유지하면서 꽉 채우기 */
+        }
+
+        #playSound {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 2;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            width: 50px; /* 작게 유지 */
+            height: 50px; /* 작게 유지 */
+            font-size: 12px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <h1>안녕하세요!</h1>
-    <p>이 웹사이트는 아무 일도 일어나지 않는 평범한 곳입니다.</p>
-    <p>조금만 기다려 주세요...</p>
-
     <!-- 귀신 이미지 -->
     <div id="ghost">
         <img src="ghost.jpg" alt="귀신 이미지">
     </div>
 
     <!-- 소리 재생 버튼 -->
-    <button id="playSound" style="margin-top: 20px; padding: 10px 20px; font-size: 16px;">소리 재생</button>
+    <button id="playSound">소리</button>
 
     <script>
         // 버튼 클릭 시 소리 재생 및 귀신 이미지 표시
@@ -53,13 +66,6 @@
             const ghost = document.getElementById('ghost');
             ghost.style.display = 'block';
         });
-
-        // 5초 후 귀신 이미지만 나타나도록 변경 (버튼은 사라지지 않음)
-        setTimeout(() => {
-            const ghost = document.getElementById('ghost');
-            ghost.style.display = 'block'; // 귀신 이미지 표시
-            // 버튼은 그대로 유지
-        }, 5000);
     </script>
 </body>
 </html>
