@@ -58,3 +58,12 @@
     </script>
 </body>
 </html>
+
+<button id="playSound">소리 재생</button>
+<script>
+    const button = document.getElementById('playSound');
+    button.addEventListener('click', () => {
+        const screamAudio = new Audio('scream.mp3');
+        screamAudio.play();
+    });
+</script>
