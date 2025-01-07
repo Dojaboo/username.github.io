@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>깜짝 놀라는 사이트</title>
+    <title>깜짝 귀신 사이트</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,11 +12,6 @@
             color: white;
             margin: 0;
             padding: 0;
-        }
-
-        #content {
-            padding: 20px;
-            font-size: 24px;
         }
 
         #ghost {
@@ -28,42 +23,43 @@
         }
 
         #ghost img {
-            width: 80%; /* 이미지 크기 조정 */
+            width: 80%;
             max-width: 500px;
         }
     </style>
 </head>
 <body>
-    <div id="content">
-        <h1>안녕하세요!</h1>
-        <p>이 웹사이트는 아무 일도 일어나지 않는 평범한 곳입니다.</p>
-        <p>조금만 기다려 주세요...</p>
-    </div>
+    <h1>안녕하세요!</h1>
+    <p>이 웹사이트는 아무 일도 일어나지 않는 평범한 곳입니다.</p>
+    <p>조금만 기다려 주세요...</p>
 
     <!-- 귀신 이미지 -->
     <div id="ghost">
         <img src="ghost.jpg" alt="귀신 이미지">
     </div>
 
-    <script>
-        // 귀신 이미지 표시하기
-        setTimeout(() => {
-            const ghost = document.getElementById("ghost");
-            ghost.style.display = "block"; // 귀신 이미지 보이게 하기
+    <!-- 소리 재생 버튼 -->
+    <button id="playSound" style="margin-top: 20px; padding: 10px 20px; font-size: 16px;">소리 재생</button>
 
-            // 비명 소리 재생 (선택)
+    <script>
+        // 버튼 클릭 시 소리 재생 및 귀신 이미지 표시
+        const button = document.getElementById('playSound');
+        button.addEventListener('click', () => {
+            // 소리 재생
             const screamAudio = new Audio('scream.mp3');
             screamAudio.play();
-        }, 5000); // 5초 후 실행
+
+            // 귀신 이미지 표시
+            const ghost = document.getElementById('ghost');
+            ghost.style.display = 'block';
+        });
+
+        // 5초 후 귀신 이미지만 나타나도록 변경 (버튼은 사라지지 않음)
+        setTimeout(() => {
+            const ghost = document.getElementById('ghost');
+            ghost.style.display = 'block'; // 귀신 이미지 표시
+            // 버튼은 그대로 유지
+        }, 5000);
     </script>
 </body>
 </html>
-
-<button id="playSound">소리 재생</button>
-<script>
-    const button = document.getElementById('playSound');
-    button.addEventListener('click', () => {
-        const screamAudio = new Audio('scream.mp3');
-        screamAudio.play();
-    });
-</script>
